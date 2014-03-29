@@ -1,12 +1,25 @@
-@(taskList: List[Task])
+@(taskList: List[Task], taskForm: Form[Task])
+
+        @import helper._
 
         @main("ourTaskList"){
 
         <ul>
             @for(task <- taskList){
-                <li>@task.getName() </li>
+                <li>
+                    @task.getName() <br>
+                    @task.getDescription()
+                   
+                </li>
             }
         </ul>
 
-
+        <h3>Add a task</h3>
+        @form(routes.Application.newTask()){
+            @inputText(taskForm("name"))
+            @inputText(taskForm("description"))
+            <input type="submit" value="Create">
         }
+
+
+}

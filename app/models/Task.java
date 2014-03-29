@@ -11,9 +11,9 @@ import java.util.List;
 @Entity
 public class Task extends Model {
     @Id
-    private long id;
-    private String name;
-    private String description;
+    public long id;
+    public String name;
+    public String description;
     public static Model.Finder<Long, Task> find = new Model.Finder(Long.class, Task.class);
     
     public Task(String name, String description){
@@ -38,6 +38,9 @@ public class Task extends Model {
         return find.byId(l);
     }
 
+    public static void createTask(Task task){
+        task.save();
+    }
 
 
 }
