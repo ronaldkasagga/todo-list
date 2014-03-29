@@ -1,0 +1,12 @@
+@(taskList: List[Task])
+
+        @main("ourTaskList"){
+
+        <ul>
+            @for(task <- taskList){
+                <li>@task.getName() @task.getId()</li>
+            }
+        </ul>
+
+
+        }
