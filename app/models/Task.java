@@ -42,5 +42,7 @@ public class Task extends Model {
         task.save();
     }
 
-
+    public static void delete(long id) {
+        find.ref(id).delete();
+    }
 }

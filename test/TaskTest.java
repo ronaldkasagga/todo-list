@@ -1,14 +1,17 @@
 import models.Task;
+import org.fest.assertions.Assertions;
 import org.junit.Test;
+import play.data.Form;
+import play.mvc.Content;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
-import static play.test.Helpers.fakeApplication;
-import static play.test.Helpers.running;
+import static play.test.Helpers.*;
 
 /**
  * Created by sagas on 3/22/14.
@@ -57,7 +60,23 @@ public class TaskTest {
         );
     }
 
-
-
-
+    @Test
+    public void canTaskBeDeletedFromBrowser(){
+        running(fakeApplication(),
+            new Runnable(){
+                public void run(){
+                    Task.createTask(new Task("my new task", "so sad she has to go"));
+                    long id = 0;
+                    for(Task task: Task.all())
+                        if(task.getName().equalsIgnoreCase("my new task")){
+                            id = task.id;
+                            break;
+                        }
+                    Task.delete(id);
+                    Content html = views.html.task.render(Task.all(), Form.form(Task.class));
+                    assertFalse(contentAsString(html).contains("my new task"));
+                }
+            }
+        );
+    }
 }
