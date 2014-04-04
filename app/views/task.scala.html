@@ -4,24 +4,52 @@
 
         @main("ourTaskList"){
 
-        <ul>
-            @for(task <- taskList){
-                <li>
-                    @task.getName() <br>
-                    @task.getDescription()
-                    @form(routes.Application.deleteTask(task.id)){
-                        <input type="submit" value="delete">
-                    }
-                </li>
-            }
-        </ul>
+        <div>
+            <div>
+                <h2>@@LevelUp2014</h2>
+                <span class="subTitle">team B</span>
+                @if(taskList.size() <= 0){
+                <span class="headTitle" >No Tasks</span>
+            </div>
+            }else{
+                @if(taskList.size() == 1 ){
+                    <span class="headTitle" >@taskList.size() TASK</span>
+                }else{
+                    <span class="headTitle" >@taskList.size() TASKS</span>
+                }
+            </div>
 
-        <h3>Add a task</h3>
-        @form(routes.Application.newTask()){
-            @inputText(taskForm("name"))
-            @inputText(taskForm("description"))
-            <input type="submit" value="Create">
-        }
+            <div class="taskBoard">
+                @for(task <- taskList){
+                <div class="taskBox">
+                    <div class="right">
+                        @form(routes.Application.deleteTask(task.id)){
+                            <button type="submit" class="delete">x</button>
+                        }
+                    </div>
+                    <div class="left">
+                        @task.getName()<div class="taskDescription">@task.getDescription()</div>
+                    </div>
+                </div>
+                }
+
+
+            </div>
+            }
+
+            <div class="bottom miniWide boxedTop">
+                @form(routes.Application.newTask()){
+                    @inputText(taskForm("name"))
+                    @inputText(taskForm("description"))
+                    <button type="submit" class="form">Save</button>
+                    <button type="reset" class="form clear">Clear</button>
+                }
+            </div>
+
+        </div>
+
+
+
 
 
 }
