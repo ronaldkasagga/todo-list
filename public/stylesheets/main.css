@@ -95,7 +95,7 @@ button.delete:hover{
 }
 .taskBoard{
     min-height: 100px;
-    max-height: 450px;
+    max-height: 240px;
     padding-top: 10px;
     overflow-y: auto;
 }
