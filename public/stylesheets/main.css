@@ -124,5 +124,6 @@ button.delete:hover{
 span.subTitle{
     color: #999999;
     position: relative;
-    top: -15px;
+    top: -30px;
+    padding-left: 25px;
 }
