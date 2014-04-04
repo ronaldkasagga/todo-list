@@ -10,6 +10,10 @@ h2{
     height: 30px;
     text-transform: capitalize;
 }
+h2.below{
+    height: 20px;
+    padding:2px;
+}
 input, form{
     color: #262627;
     width: 98%;
@@ -20,17 +24,23 @@ input, form{
 label{
     padding-left: 40px;
 }
+button{
+    font-family: 'Lato', sans-serif;
+}
 button.form{
     width: 49%;
     font-size: large;
     font-weight: bold;
     color: grey;
-    background: #78f399;
-    border: 1px solid #78f399;
+    background: #30FF68;
+    border: 1px solid #30FF68;
     right: 0px;
     height: 35px;
 }
-
+.button.form:hover{
+    color: #BEFFD0;
+    background: #00AF2F;
+}
 button.clear{
     background: #dfdfdf;
     border: 1px solid #dfdfdf;
@@ -45,9 +55,12 @@ button.delete{
 button.delete:hover{
     #background: #fddbdf;
 }
+dd.error{
+    font-size:12px;
+}
 .bottom{
     position:fixed;
-    bottom:15px;
+    bottom:5px;
 }
 .boxedSolid{
     border: 1px solid black;
@@ -73,10 +86,18 @@ button.delete:hover{
     padding-top: auto;
     height: 100%;
 }
+.error{
+    #font-weight: bold;
+    color: #FD0000;
+}
 .headTitle{
     text-align: center;
     padding-left: 180px;
     font-weight: 500;
+}
+.info{
+    color: #2BD3D3;
+    font-size:12px;
 }
 .labelTitle{
     font-size: 17px;
@@ -94,8 +115,8 @@ button.delete:hover{
     display: inline-block;
 }
 .taskBoard{
-    min-height: 100px;
-    max-height: 240px;
+    min-height: 25px;
+    max-height: 320px;
     padding-top: 10px;
     overflow-y: auto;
 }

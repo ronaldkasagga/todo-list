@@ -1,5 +1,6 @@
 package models;
 
+import play.data.validation.Constraints;
 import play.db.ebean.*;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,6 +13,7 @@ import java.util.List;
 public class Task extends Model {
     @Id
     public long id;
+    @Constraints.Required
     public String name;
     public String description;
     public static Model.Finder<Long, Task> find = new Model.Finder(Long.class, Task.class);

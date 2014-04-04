@@ -37,12 +37,12 @@
             </div>
             }
 
-            <div class="bottom miniWide boxedTop">
-                <center ><h2>ADD NEW TASK</h2></center>
+            <div class="bottom miniWide ">
+
                 @form(routes.Application.newTask()){
                     @inputText(taskForm("name"))
                     @inputText(taskForm("description"))
-                    <button type="submit" class="form">Save</button>
+                    <button type="submit" class="form">Add Task</button>
                     <button type="reset" class="form clear">Clear</button>
                 }
             </div>
